@@ -16,12 +16,10 @@ const mostrarProductos = (productos)=>{
         <td>${prod.descripcion}</td>
         <td>${prod.precio}</td>
         <td>
-        <button type="button" onclick="uploadFormEditProduct(${prod.id})" class="btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#editarProducto">
-        <i class="fas fa-user-edit"></i></button>
-        <button type="button" onclick="eliminarProducto(${
-        prod.id
-        })" class="btn btn-sm btn-danger">
-        <i class="fas fa-trash-alt"></i></button></td>
+        <button type="button" onclick="uploadFormEditProduct(${prod.id})" class="btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#editarProducto"><i class="fas fa-user-edit"></i></button>
+        <button type="button" onclick="eliminarProducto(${prod.id})" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+        <button type="button" onclick="NoPublicarProducto(${prod.id})" class="btn btn-sm ${prod.publicado === true ? 'btn-success' : 'btn-secondary'} ${prod.publicado === true ? 'active' : 'disable'}">No publicar</i></button>
+        <button type="button" onclick="publicarProducto(${prod.id})" class="btn btn-sm ${prod.publicado === false ? 'btn-success' : 'btn-secondary'} ${prod.publicado === false ? 'active' : 'disable'}">Publicar</i></button></td>
         </tr>`).join('')
     
     
@@ -89,6 +87,7 @@ formAgregarProductos.onsubmit = (e)=>{
     const descripcion = descripcionDelProducto.value;
     const categoria = categoriaDelProducto.value;
     const deleteAt = 'no';
+    const publicado = true
 
     productos.push({
         id,
@@ -98,7 +97,8 @@ formAgregarProductos.onsubmit = (e)=>{
         video,
         descripcion,
         categoria,
-        deleteAt
+        deleteAt,
+        publicado
     });
 
     localStorage.setItem('productos', JSON.stringify(productos));
@@ -109,7 +109,7 @@ formAgregarProductos.onsubmit = (e)=>{
     
 }
 
-
+// Funciones para publicar los productos los productos 
 
 
 
@@ -160,3 +160,18 @@ const eliminarProducto = (id) => {
     displayProductos();
 };
 
+const NoPublicarProducto = (id) => {
+    const updateProducts = productos.map((producto) =>
+      (producto.id === id && producto.publicado === true) ? {...producto, publicado : false}  : producto
+    );
+    localStorage.setItem('productos', JSON.stringify(updateProducts));
+    displayProductos();
+};
+
+const publicarProducto = (id) => {
+    const updateProducts = productos.map((producto) =>
+      (producto.id === id && producto.publicado === false) ? {...producto, publicado : true}  : producto
+    );
+    localStorage.setItem('productos', JSON.stringify(updateProducts));
+    displayProductos();
+};
