@@ -22,11 +22,7 @@ const mostrarProductos = (productos)=>{
         prod.id
         })" class="btn btn-sm btn-danger">
         <i class="fas fa-trash-alt"></i></button></td>
-        </tr>
-        
-        
-        
-        `).join('')
+        </tr>`).join('')
     
     
 }
@@ -121,14 +117,15 @@ formAgregarProductos.onsubmit = (e)=>{
 
 let idProductoEditado;
 const uploadFormEditProduct = (id) => {
-  const producto = productos.find(producto => producto.id === id);
-  nombreDelProductoEditado.value = producto.nombreDelProducto;
-  precioDelProductoEditado.value = producto.precioDelProducto;
-  fotoDelProductoEditado.value = producto.fotoDelProducto;
-  videoDelProductoEditado.value = producto.videoDelProducto;
-  descripcionDelProductoEditado.value = producto.descripcionDelProducto; 
-  categoriaDelProductoEditado.value = producto.categoriaDelProducto;
   idProductoEditado = id;
+  const producto = productos.find(producto => producto.id == idProductoEditado);
+  nombreDelProductoEditado.value = producto.nombre;
+  precioDelProductoEditado.value = producto.precio;
+  fotoDelProductoEditado.value = producto.foto;
+  videoDelProductoEditado.value = producto.video;
+  descripcionDelProductoEditado.value = producto.descripcion; 
+  categoriaDelProductoEditado.value = producto.categoria;
+ 
 };
 
 
