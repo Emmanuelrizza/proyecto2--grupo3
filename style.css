@@ -29,6 +29,28 @@
 .color-caracteristica{
     color: #27C27A ;
 }
+
+#navbarSupportedContent{
+    position: relative;
+}
+#divShowbtnNavbar {
+    position: absolute;
+    margin: auto;
+    right: 50px;
+}
+#dropdownMenuButton1 {
+    border-color: #172058;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 60px;
+}
+
+.icon-logo {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin-left: 40px;
+}
 .navbar-toggler {
     width: 40px;
     height: 10px;
