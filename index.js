@@ -108,15 +108,16 @@ formLogin.onsubmit = (e) => {
   const pass = inputPassLogin.value;
   const findUser = users.find(
     (user) => user.email === email && user.pass === pass
-  );
+  )
 
   if (!findUser) {
     pUserNotCreated.classList.remove("d-none");
     return;
-  } else if (findUser.role === "admin") {
+  } else if (findUser.email === "admin@admin.com" && pass === "Admin123*") {
     localStorage.setItem("isAdmin", JSON.stringify(findUser));
+    localStorage.setItem("userLogged", JSON.stringify(findUser));
     swal("Bienvenido Admin");
-    redirect("./admin.html");
+    redirect("./administrador/administrador.html");
   } else {
     localStorage.setItem("userLogged", JSON.stringify(findUser));
     swal({
@@ -164,9 +165,9 @@ const logOut = () => {
 
 const iconEye = document.querySelector(".icon-eye");
 
-iconEye.addEventListener ("click", function () {
+iconEye.addEventListener("click", function () {
   const icon = this.querySelector("i");
-  
+
   if (this.nextElementSibling.type === "password") {
     this.nextElementSibling.type = "text";
     icon.classList.remove("fa-eye-slash");
