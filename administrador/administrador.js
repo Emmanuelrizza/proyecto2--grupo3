@@ -162,26 +162,55 @@ formEditarProductos.onsubmit = (e)=>{
 }
 
 // FUNCION PARA ELIMINAR PRODUCTOS 
-const eliminarProducto = (id,e) => {
+/*const eliminarProducto = (id) => {
     const updateProducts = productos.map((producto) =>
       producto.id === id ? producto.deleteAt = Date()  : producto
     );
     localStorage.setItem('productos', JSON.stringify(updateProducts));
     displayProductos();
+};*/
+const eliminarProducto = (id) => {
+    productos.forEach((producto) => {
+      if (producto.id === id) 
+          
+          producto.deleteAt= new Date()
+    })
+  
+  localStorage.setItem('productos', JSON.stringify(productos));
+  displayProductos();
+  
 };
 
-const NoPublicarProducto = (id) => {
+
+
+
+
+/*const NoPublicarProducto = (id) => {
     const updateProducts = productos.map((producto) =>
       (producto.id === id && producto.publicado === true) ? {...producto, publicado : false}  : producto
     );
     localStorage.setItem('productos', JSON.stringify(updateProducts));
     displayProductos();
+};*/
+
+const NoPublicarProducto = (id) => {
+    productos.forEach((producto) => {
+        if (producto.id === id && producto.publicado === true) 
+            
+            producto.publicado= false;
+      })
+    localStorage.setItem('productos', JSON.stringify(productos));
+    displayProductos();
 };
 
+
+
 const publicarProducto = (id) => {
-    const updateProducts = productos.map((producto) =>
-      (producto.id === id && producto.publicado === false) ? {...producto, publicado : true} : producto
-    );
-    localStorage.setItem('productos', JSON.stringify(updateProducts));
+    productos.forEach((producto) => {
+        if (producto.id === id && producto.publicado === false) 
+            
+            producto.publicado= true;
+      })
+    localStorage.setItem('productos', JSON.stringify(productos));
     displayProductos();
 };
