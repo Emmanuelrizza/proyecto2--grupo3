@@ -1,0 +1,8 @@
+.th_img{
+    width: 150px;
+    height: 150px;
+}
+
+.img_producto{
+    object-fit: cover !important;
+}

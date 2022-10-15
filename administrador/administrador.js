@@ -9,17 +9,27 @@ const mostrarProductos = (productos)=>{
        (prod, i)=> `
     <tr>
         <td>${++i}</td>
-        <td class="w-25"><img src="${prod.foto}" alt="${
-            prod.nombre
-            }" class="w-25"/></td>
+        <td class="th_img d-fle table-secondary my-1"><img src="${prod.foto}" alt="${prod.nombre}" class="img_producto w-100"/></td>
         <td>${prod.nombre}</td>
         <td>${prod.descripcion}</td>
         <td>${prod.precio}</td>
         <td>
-        <button type="button" onclick="uploadFormEditProduct(${prod.id})" class="btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#editarProducto"><i class="fas fa-user-edit"></i></button>
-        <button type="button" onclick="eliminarProducto(${prod.id})" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
-        <button type="button" onclick="NoPublicarProducto(${prod.id})" class="btn btn-sm ${prod.publicado === true ? 'btn-success' : 'btn-secondary'} ${prod.publicado === true ? 'active' : 'disable'}">No publicar</i></button>
-        <button type="button" onclick="publicarProducto(${prod.id})" class="btn btn-sm ${prod.publicado === false ? 'btn-success' : 'btn-secondary'} ${prod.publicado === false ? 'active' : 'disable'}">Publicar</i></button></td>
+        <div class="d-none d-md-flex">
+        <button type="button" onclick="uploadFormEditProduct(${prod.id})" class="mx-1 btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#editarProducto"><i class="fas fa-user-edit"></i></button>
+        <button type="button" onclick="eliminarProducto(${prod.id})" class="mx-1 btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+        <button type="button" onclick="NoPublicarProducto(${prod.id})" class="mx-1 btn btn-sm ${prod.publicado === true ? 'btn-success' : 'btn-secondary'} ${prod.publicado === true ? 'active' : 'disable'}">No publicar</i></button>
+        <button type="button" onclick="publicarProducto(${prod.id})" class="mx-1 btn btn-sm ${prod.publicado === false ? 'btn-success' : 'btn-secondary'} ${prod.publicado === false ? 'active' : 'disable'}">Publicar</i></button>
+        </div>
+
+
+        <div class="dropdown d-md-none">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Opciones</button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li"><button type="button" onclick="uploadFormEditProduct(${prod.id})" class="btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#editarProducto"><i class="fas fa-user-edit"></i></button> <button type="button" onclick="eliminarProducto(${prod.id})" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button></li>
+                <li><button type="button" onclick="NoPublicarProducto(${prod.id})" class="btn btn-sm ${prod.publicado === true ? 'btn-success' : 'btn-secondary'} ${prod.publicado === true ? 'active' : 'disable'}">No publicar</i></button></li>
+                <li><button type="button" onclick="publicarProducto(${prod.id})" class="btn btn-sm ${prod.publicado === false ? 'btn-success' : 'btn-secondary'} ${prod.publicado === false ? 'active' : 'disable'}">Publicar</i></button></li>
+            </ul>
+        </div></td>
         </tr>`).join('')
     
     
@@ -109,7 +119,7 @@ formAgregarProductos.onsubmit = (e)=>{
     
 }
 
-// Funciones para publicar los productos los productos 
+// Funciones para publicar los productos
 
 
 
@@ -152,7 +162,7 @@ formEditarProductos.onsubmit = (e)=>{
 }
 
 // FUNCION PARA ELIMINAR PRODUCTOS 
-const eliminarProducto = (id) => {
+const eliminarProducto = (id,e) => {
     const updateProducts = productos.map((producto) =>
       producto.id === id ? producto.deleteAt = Date()  : producto
     );
@@ -170,7 +180,7 @@ const NoPublicarProducto = (id) => {
 
 const publicarProducto = (id) => {
     const updateProducts = productos.map((producto) =>
-      (producto.id === id && producto.publicado === false) ? {...producto, publicado : true}  : producto
+      (producto.id === id && producto.publicado === false) ? {...producto, publicado : true} : producto
     );
     localStorage.setItem('productos', JSON.stringify(updateProducts));
     displayProductos();
