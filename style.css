@@ -1,130 +1,140 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-.arregloImg{
-    width: 100px;
-    height: 300px;
+.arregloImg {
+  width: 100px;
+  height: 300px;
 }
-.card-style{
-    height: 550px;
+.card-style {
+  height: 550px;
 }
 
-.section-banner{
-    background-image: url(/Imagenes/banner-About-us.jpg);
-    height: 250px;
-    width: 100%;
-    background-size: cover;
-    
+.section-banner {
+  background-image: url(/Imagenes/banner-About-us.jpg);
+  height: 250px;
+  width: 100%;
+  background-size: cover;
 }
 
 .iconos {
-    color: #172058;
+  color: #172058;
 }
 
-.iconos:hover{
-    transform: scale(1.5);
-    color:#020AA6 ;
+.iconos:hover {
+  transform: scale(1.5);
+  color: #020aa6;
 }
-.color-caracteristica{
-    color: #27C27A ;
+.color-caracteristica {
+  color: #27c27a;
 }
 
-#navbarSupportedContent{
-    position: relative;
+#navbarSupportedContent {
+  position: relative;
 }
-#divShowbtnNavbar {
-    position: absolute;
-    margin: auto;
-    right: 50px;
+#divShowbtnNavbar,
+#divShowbtnNavbarAdmin {
+  position: absolute;
+  margin: auto;
+  right: 50px;
 }
+
 #dropdownMenuButton1 {
-    border-color: #172058;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 60px;
+  border-color: #172058;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 60px;
 }
 
 .icon-logo {
-    position: relative;
-    width: 90px;
-    height: 90px;
-    margin-left: 40px;
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-left: 40px;
 }
 .navbar-toggler {
-    width: 40px;
-    height: 10px;
-    position: relative;
-    transition: .5s ease-in-out;
+  width: 40px;
+  height: 10px;
+  position: relative;
+  transition: 0.5s ease-in-out;
 }
 
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
-    outline: none;
-    box-shadow: none;
-    border: 0;
+  outline: none;
+  box-shadow: none;
+  border: 0;
 }
 
 .navbar-toggler span {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .toggler-icon {
-    display: block;
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background: #d3531a;
-    border-radius: 1px;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #d3531a;
+  border-radius: 1px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
 }
 
 .middle-bar {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 /* cuando se hace clic en toggler */
 
 .navbar-toggler .top-bar {
-    margin-top: 0px;
-    transform: rotate(135deg);
+  margin-top: 0px;
+  transform: rotate(135deg);
 }
 
 .navbar-toggler .middle-bar {
-    opacity: 0;
-    filter: alpha(opacity=0);
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 .navbar-toggler .bottom-bar {
-    margin-top: 0px;
-    transform: rotate(-135deg);
+  margin-top: 0px;
+  transform: rotate(-135deg);
 }
 
 /* Estado cuando la barra de navegación está colapsada */
 
 .navbar-toggler.collapsed .top-bar {
-    margin-top: -15px;
-    transform: rotate(0deg);
+  margin-top: -15px;
+  transform: rotate(0deg);
 }
 
 .navbar-toggler.collapsed .middle-bar {
-    opacity: 1;
-    filter: alpha(opacity=100);
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 
 .navbar-toggler.collapsed .bottom-bar {
-    margin-top: 15px;
-    transform: rotate(0deg);
+  margin-top: 15px;
+  transform: rotate(0deg);
 }
 
 /* Color de las 3 lineas */
 
 .navbar-toggler.collapsed .toggler-icon {
-    background:  rgb(4, 38, 64);
+  background: rgb(4, 38, 64);
+}
+
+@media screen and (max-width: 500px) {
+  #divShowbtnNavbar,
+  #divShowbtnNavbarAdmin {
+    position: absolute;
+    margin: auto;
+    right: 7px;
+  }
 }
