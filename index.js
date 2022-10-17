@@ -25,6 +25,7 @@ const inputSearch = document.getElementById("inputSearch");
 //Seteamos `users` y `usersLogged`
 const users = JSON.parse(localStorage.getItem("users")) || [];
 const userLogged = JSON.parse(localStorage.getItem("userLogged"));
+const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
 
 //HTML
 const divShowbtnNavbar = document.getElementById("divShowbtnNavbar");
@@ -74,7 +75,29 @@ formRegistro.onsubmit = (event) => {
 
   const findUser = users.find((user) => user.email === email);
 
-  if (!findUser) {
+  if (email === "admin@admin.com" && pass === "Admin123*") {
+    users.push({
+      id: idRandom(),
+      name,
+      lastName,
+      email,
+      pass,
+      role: "admin",
+      delete: false,
+      suspended: false,
+    });
+    localStorage.setItem("users", JSON.stringify(users));
+    swal({
+      title: "Bienvenido!",
+      text: "Te registraste con éxito!",
+      icon: "success",
+      buttons: false,
+      timer: 3000,
+    });
+    formRegistro.reset();
+    let modal = bootstrap.Modal.getInstance(Registro);
+    modal.hide();
+  } else if (!findUser) {
     users.push({
       id: idRandom(),
       name,
@@ -83,6 +106,7 @@ formRegistro.onsubmit = (event) => {
       pass,
       role: "client",
       delete: false,
+      suspended: false,
     });
 
     localStorage.setItem("users", JSON.stringify(users));
@@ -108,7 +132,7 @@ formLogin.onsubmit = (e) => {
   const pass = inputPassLogin.value;
   const findUser = users.find(
     (user) => user.email === email && user.pass === pass
-  )
+  );
 
   if (!findUser) {
     pUserNotCreated.classList.remove("d-none");
@@ -117,7 +141,9 @@ formLogin.onsubmit = (e) => {
     localStorage.setItem("isAdmin", JSON.stringify(findUser));
     localStorage.setItem("userLogged", JSON.stringify(findUser));
     swal("Bienvenido Admin");
-    redirect("./administrador/administrador.html");
+    setTimeout(() => {
+      window.location.href = "./administrador/administrador.html";
+    }, 1000);
   } else {
     localStorage.setItem("userLogged", JSON.stringify(findUser));
     swal({
@@ -126,7 +152,9 @@ formLogin.onsubmit = (e) => {
       icon: "success",
       button: "INICIO",
     });
-    redirect("./index.html");
+    setTimeout(() => {
+      window.location.href = "./index.html";
+    }, 1000);
   }
 };
 //CONTRASEÑA OLVIDADA.
@@ -148,10 +176,16 @@ const forgottenPassword = () => {
   });
 };
 
-const redirect = (url) => {
-  setTimeout(() => {
-    window.location.href = url;
-  }, 1500);
+const redirect = () => {
+  if (userLogged.email === "admin@admin.com") {
+    setTimeout(() => {
+      window.location.href = "./administrador/administrador.html";
+    }, 1000);
+  } else {
+    setTimeout(() => {
+      window.location.href = "./index.html";
+    }, 1000);
+  }
 };
 
 const logOut = () => {
