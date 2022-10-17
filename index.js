@@ -75,7 +75,29 @@ formRegistro.onsubmit = (event) => {
 
   const findUser = users.find((user) => user.email === email);
 
-  if (!findUser) {
+  if (email === "admin@admin.com" && pass === "Admin123*") {
+    users.push({
+      id: idRandom(),
+      name,
+      lastName,
+      email,
+      pass,
+      role: "admin",
+      delete: false,
+      suspended: false,
+    });
+    localStorage.setItem("users", JSON.stringify(users));
+    swal({
+      title: "Bienvenido!",
+      text: "Te registraste con éxito!",
+      icon: "success",
+      buttons: false,
+      timer: 3000,
+    });
+    formRegistro.reset();
+    let modal = bootstrap.Modal.getInstance(Registro);
+    modal.hide();
+  } else if (!findUser) {
     users.push({
       id: idRandom(),
       name,
@@ -84,6 +106,7 @@ formRegistro.onsubmit = (event) => {
       pass,
       role: "client",
       delete: false,
+      suspended: false,
     });
 
     localStorage.setItem("users", JSON.stringify(users));
