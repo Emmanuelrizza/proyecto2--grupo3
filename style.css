@@ -1,3 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.arregloImg{
+    width: 100px;
+    height: 300px;
+}
+.card-style{
+    height: 550px;
+}
+
+.section-banner{
+    background-image: url(/Imagenes/banner-About-us.jpg);
+    height: 250px;
+    width: 100%;
+    background-size: cover;
+    
+}
+
+.iconos {
+    color: #172058;
+}
+
+.iconos:hover{
+    transform: scale(1.5);
+    color:#020AA6 ;
+}
+.color-caracteristica{
+    color: #27C27A ;
+}
+
+#navbarSupportedContent{
+    position: relative;
+}
+#divShowbtnNavbar {
+    position: absolute;
+    margin: auto;
+    right: 50px;
+}
+#dropdownMenuButton1 {
+    border-color: #172058;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 60px;
+}
+
+.icon-logo {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin-left: 40px;
+}
 .navbar-toggler {
     width: 40px;
     height: 10px;
