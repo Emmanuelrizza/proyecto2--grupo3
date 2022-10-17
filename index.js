@@ -212,3 +212,7 @@ iconEye.addEventListener("click", function () {
     icon.classList.add("fa-eye-slash");
   }
 });
+
+const vermas = () => {
+  window.location.href = './index.html'
+}
