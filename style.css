@@ -128,3 +128,13 @@
 .navbar-toggler.collapsed .toggler-icon {
     background:  rgb(4, 38, 64);
 }
+
+/* Tamaño y tipo de letra en slider*/
+h5 {
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
