@@ -132,9 +132,9 @@
 /* Tamaño y tipo de letra en slider*/
 h5 {
     font-size: 40px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+ul{
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-h1{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
