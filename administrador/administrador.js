@@ -3,6 +3,28 @@ const tablaDeProductos = document.querySelector("#tablaDeProductos");
 // Datos JSON
 const userAdmin = JSON.parse(localStorage.getItem("isAdmin"));
 const productos = JSON.parse(localStorage.getItem("productos")) || [];
+const celular = {
+  id : idRandom(),
+    nombre : "Samsung A30",
+    precio : 40000,
+    foto : "https://http2.mlstatic.com/D_NQ_NP_738933-MLA31838585007_082019-O.jpg" ,
+    video : "https://youtu.be/u0_-vm-3dHo",
+    descripcion : "características técnicas del A30: Sistema operativo Android 9.0 2340 x 1080 (FHD+) Cámara dual trasera16 Mpx + 5 Mpx Cámara frontal 16 Mpx Pantalla Touchscreen Batería 4000 mA RAM 3GB Memoria interna 32GB Memoria externa hasta 512GB Dual-SIM",
+    categoria : "Tecnologia",
+    deleteAt : "no",
+    publicado : true,
+}
+const tv = {
+  id : idRandom(),
+    nombre : "Smart Philir 32",
+    precio : 44000,
+    foto : "https://www.musimundo.com/audio-tv-video/televisores/smart-led-tv-philips-32-pulgadas-hd-32phd6825-77/p/00321647/zoomImages" ,
+    video : "https://youtu.be/6AROcVRbeg8",
+    descripcion : "SMART LED TV PHILIPS 32 PULGADAS HD 32HD Alto: 48.62.  Ancho: 71.92.  Color: NEGRO.  Angulo de vision: AMPLIO.  Tipo: CD.  Base giratoria: NO.",
+    categoria : "Tecnologia, Hogar",
+    deleteAt : "no",
+    publicado : true,
+}
 // Mostrar tabla de productos
 const mostrarProductos = (productos) => {
   tablaDeProductos.innerHTML = productos
