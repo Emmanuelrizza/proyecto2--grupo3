@@ -181,3 +181,14 @@ sectionNosotros {
   margin: 5px;
   width: 150px;
 }
+
+/* CLASES PARA LAS CARDS DE LOS PRODUCTOS*/
+.div-img-card{
+  width: 100%;
+  height: 250px;
+}
+.img-card-producto{
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
