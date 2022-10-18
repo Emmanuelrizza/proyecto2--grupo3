@@ -138,3 +138,13 @@ h5 {
 h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+/* CONTACTO */
+#email{
+    opacity: 0;
+}
+#contactus {
+    background: url(./Imagenes/Contact\ us.jpg);
+	background-attachment: fixed;
+	background-size:cover;
+	margin: 0;
+}
