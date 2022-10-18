@@ -216,3 +216,20 @@ iconEye.addEventListener("click", function () {
 const vermas = () => {
   window.location.href = './index.html'
 }
+
+//FUNCION BUSCAR
+//const formSearch = document.getElementById('formSearch');
+//const inputSearch = document.getElementById('inputSearch');
+
+formSearch.onsubmit = (e) => {
+    e.preventDefault();
+    const term = inputSearch.value;
+    const buscarProducts = productos.filter(producto =>
+    producto.name.toLowerCase().includes(term.toLowerCase())
+    );
+    displayProducts(buscarProducts);
+}
+
+const clearSearch = () => {
+    displayProducts(buscarProducts);
+}
