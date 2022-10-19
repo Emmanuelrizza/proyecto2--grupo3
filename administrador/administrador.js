@@ -3,7 +3,8 @@ const tablaDeProductos = document.querySelector("#tablaDeProductos");
 // Datos JSON
 const userAdmin = JSON.parse(localStorage.getItem("isAdmin"));
 const productos = JSON.parse(localStorage.getItem("productos")) || [];
-const celular = {
+const productosHardCod = [
+{
   id : idRandom(),
     nombre : "Samsung A30",
     precio : 40000,
@@ -13,18 +14,35 @@ const celular = {
     categoria : "Tecnologia",
     deleteAt : "no",
     publicado : true,
-}
-const tv = {
+    hardCode : true
+},
+
+{
   id : idRandom(),
     nombre : "Smart Philir 32",
     precio : 44000,
-    foto : "https://www.musimundo.com/audio-tv-video/televisores/smart-led-tv-philips-32-pulgadas-hd-32phd6825-77/p/00321647/zoomImages" ,
+    foto : "https://images.philips.com/is/image/PhilipsConsumer/32PHG5301_77-IMS-es_AR?$jpglarge$&wid=1250" ,
     video : "https://youtu.be/6AROcVRbeg8",
     descripcion : "SMART LED TV PHILIPS 32 PULGADAS HD 32HD Alto: 48.62.  Ancho: 71.92.  Color: NEGRO.  Angulo de vision: AMPLIO.  Tipo: CD.  Base giratoria: NO.",
     categoria : "Tecnologia, Hogar",
     deleteAt : "no",
     publicado : true,
+    hardCode : true
 }
+]
+const hasProduct = ()=>{
+  return productos.find(
+    (producto)=> producto.hardCode === true 
+  )
+}
+
+if(!hasProduct()){
+  const newproducto = productos.concat(productosHardCod)
+localStorage.setItem("productos", JSON.stringify(newproducto) )
+}
+
+
+
 // Mostrar tabla de productos
 const mostrarProductos = (productos) => {
   tablaDeProductos.innerHTML = productos
