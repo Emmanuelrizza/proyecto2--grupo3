@@ -66,7 +66,7 @@ if (!userLogged) {
 
 const displayProducts = (productos) => {
   const productsAvailable = productos.filter(
-    (producto) => producto.publicado = true && producto.deleteAt === "no")
+    (producto) => producto.publicado === true && producto.deleteAt === "no")
   ;
   divMostrarProductos.innerHTML = productsAvailable.map(
       (producto) =>

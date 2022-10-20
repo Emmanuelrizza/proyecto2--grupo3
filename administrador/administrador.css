@@ -6,7 +6,7 @@
 
 .img_producto{
     object-fit: cover !important;
-
+}
 body{
     box-sizing: border-box;
     max-width: 100%;
