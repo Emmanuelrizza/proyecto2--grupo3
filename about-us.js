@@ -4,17 +4,17 @@ const divShowbtnNavbarAbout = document.getElementById("divShowbtnNavbarAbout");
 
 if (!userLogged) {
   divShowbtnNavbarAbout.innerHTML = `
-    <button type="button" class="btn bg-transparent text-dark mx-1 fs-5" data-bs-toggle="modal" data-bs-target="#Login">
+    <button type="button" class="btn bg-transparent text-white mx-1 fs-5" data-bs-toggle="modal" data-bs-target="#Login">
       Inicia sesion
     </button>
-    <button type="button" class="btn bg-transparent text-dark mx-1 fs-5" data-bs-toggle="modal" data-bs-target="#Registro">
+    <button type="button" class="btn bg-transparent text-white mx-1 fs-5" data-bs-toggle="modal" data-bs-target="#Registro">
       Registrate
     </button>
     `;
 } else {
   divShowbtnNavbarAbout.innerHTML = `
     <div class="dropdown">
-    <button class="btn bg-transparent text-dark dropdown-toggle fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn bg-transparent text-white dropdown-toggle fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fa-solid fa-user-astronaut"></i>
       ${userLogged.name}
     </button>
