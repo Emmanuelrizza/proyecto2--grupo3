@@ -19,8 +19,11 @@ body{
     object-fit: cover;
 
 }
+.color-titulos{
+  color: #172058;
+}
 .card-style {
-  height: 550px;
+  height: 580px !important;
 }
 
 .section-banner {
