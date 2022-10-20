@@ -160,10 +160,10 @@ formAgregarProductos.onsubmit = (e) => {
   });
 
   localStorage.setItem("productos", JSON.stringify(productos));
-  swal("producto guardado con exito", "success");
+  swal("producto guardado con exito",);
   formAgregarProductos.reset();
   displayProductos();
-  // bootstrap.Modal.getInstance(modalAgregarProductos).hide();
+  bootstrap.Modal.getInstance(modalAgregarProductos).hide();
 };
 
 // Funciones para publicar los productos
