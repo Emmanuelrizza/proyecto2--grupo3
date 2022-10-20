@@ -79,7 +79,7 @@ const displayProducts = (productos) => {
               <p class="card-text">${producto.descripcion.substring(0,150)}...
               <span class="badge ${producto.precio < 3000 ? 'bg-success' : 'bg-danger'} ">$ ${producto.precio}</span></p>
               <a href="#" class="btn btn-primary">Comprar</a>
-              <button type="button" class="btn btn-primary" onclick="vermas()">Ver mas</button>
+              <button type="button" class="btn btn-primary" onclick="vermas('${producto.nombre}')">Ver mas</button>
             </div>
             </div>
           </div>
@@ -248,8 +248,15 @@ iconEye.addEventListener("click", function () {
   }
 });
 
-const vermas = () => {
-  window.location.href = './index.html'
+
+const vermas = (name) => {
+ if (name === 'Samsung A30') {
+    window.location.href = './detalle.html'
+  } else if (name === "Smart Philir 32") {
+    window.location.href = './detalle2.html'
+  }
+ else{window.location.href = './index.html'
+ }
 }
 
 
@@ -258,7 +265,7 @@ const vermas = () => {
 formSearch.onsubmit = (e) => {
   e.preventDefault();
   const term = inputSearch.value;
-  const searchProducts = productos.filter(producto => 
+  const searchProducts = productos.filter(producto =>
     producto.nombre.toLowerCase().includes(term.toLowerCase())
   );
   displayProducts(searchProducts);
