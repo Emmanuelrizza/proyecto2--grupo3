@@ -1,3 +1,9 @@
+
+// DIV PARA MOSTRAR LOS PRODUCTOS EN INDEX
+const divMostrarProductos = document.querySelector("#divMostrarProductos");
+const productos = JSON.parse(localStorage.getItem('productos')) || [];
+const formSearch = document.getElementById('formSearch');
+
 //FORMULARIO DE REGISTRO
 const formRegistro = document.getElementById("registrationForm");
 const inputNameRegistro = document.getElementById("InputNameRegistro");
@@ -18,13 +24,13 @@ const inputEmailLogin = document.getElementById("InputEmailLogin");
 const inputPassLogin = document.getElementById("InputPasswordLogin");
 const modalLogin = document.getElementById("Login");
 const pUserNotCreated = document.getElementById("pUserNotCreated");
-const formSearch = document.getElementById("formSearch");
 const inputSearch = document.getElementById("inputSearch");
 
 //INFO LOCAL STORAGE
 //Seteamos `users` y `usersLogged`
 const users = JSON.parse(localStorage.getItem("users")) || [];
 const userLogged = JSON.parse(localStorage.getItem("userLogged"));
+const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
 
 //HTML
 const divShowbtnNavbar = document.getElementById("divShowbtnNavbar");
@@ -53,6 +59,37 @@ if (!userLogged) {
     `;
 }
 
+
+
+// INYECTAR HTML PARA QUE SE VEAN LOS PRODUCTOS
+const displayProducts = (productos) => {
+  const productsAvailable = productos.filter(
+    (producto) => !producto.hasOwnProperty()
+  );
+  divMostrarProductos.innerHTML = productsAvailable
+    .map(
+      (producto) =>
+        `
+          <div class=" col-12 col-md-6 col-lg-3 p-2">
+          <div class="card">
+          <div class="d-flex div-img-card">
+            <img src="${producto.foto}" class="img-card-producto" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fs-5 text-center">${producto.nombre}</h5>
+              <p class="card-text">${producto.descripcion}
+              <span class="badge ${producto.precio < 3000 ? 'bg-success' : 'bg-danger'} ">$ ${producto.precio}</span></p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+              <button type="button" class="btn btn-primary" onclick="vermas()">Ver mas</button>
+            </div>
+            </div>
+          </div>
+  `
+    )
+    .join('');
+};
+displayProducts(productos);
+
 //FUNCIONES
 function idRandom() {
   return new Date().getTime();
@@ -74,7 +111,29 @@ formRegistro.onsubmit = (event) => {
 
   const findUser = users.find((user) => user.email === email);
 
-  if (!findUser) {
+  if (email === "admin@admin.com" && pass === "Admin123*") {
+    users.push({
+      id: idRandom(),
+      name,
+      lastName,
+      email,
+      pass,
+      role: "admin",
+      delete: false,
+      suspended: false,
+    });
+    localStorage.setItem("users", JSON.stringify(users));
+    swal({
+      title: "Bienvenido!",
+      text: "Te registraste con éxito!",
+      icon: "success",
+      buttons: false,
+      timer: 3000,
+    });
+    formRegistro.reset();
+    let modal = bootstrap.Modal.getInstance(Registro);
+    modal.hide();
+  } else if (!findUser) {
     users.push({
       id: idRandom(),
       name,
@@ -83,6 +142,7 @@ formRegistro.onsubmit = (event) => {
       pass,
       role: "client",
       delete: false,
+      suspended: false,
     });
 
     localStorage.setItem("users", JSON.stringify(users));
@@ -113,10 +173,13 @@ formLogin.onsubmit = (e) => {
   if (!findUser) {
     pUserNotCreated.classList.remove("d-none");
     return;
-  } else if (findUser.role === "admin") {
+  } else if (findUser.email === "admin@admin.com" && pass === "Admin123*") {
     localStorage.setItem("isAdmin", JSON.stringify(findUser));
+    localStorage.setItem("userLogged", JSON.stringify(findUser));
     swal("Bienvenido Admin");
-    redirect("./admin.html");
+    setTimeout(() => {
+      window.location.href = "./administrador/administrador.html";
+    }, 1000);
   } else {
     localStorage.setItem("userLogged", JSON.stringify(findUser));
     swal({
@@ -125,7 +188,9 @@ formLogin.onsubmit = (e) => {
       icon: "success",
       button: "INICIO",
     });
-    redirect("./index.html");
+    setTimeout(() => {
+      window.location.href = "./index.html";
+    }, 1000);
   }
 };
 //CONTRASEÑA OLVIDADA.
@@ -147,10 +212,16 @@ const forgottenPassword = () => {
   });
 };
 
-const redirect = (url) => {
-  setTimeout(() => {
-    window.location.href = url;
-  }, 1500);
+const redirect = () => {
+  if (userLogged.email === "admin@admin.com") {
+    setTimeout(() => {
+      window.location.href = "./administrador/administrador.html";
+    }, 1000);
+  } else {
+    setTimeout(() => {
+      window.location.href = "./index.html";
+    }, 1000);
+  }
 };
 
 const logOut = () => {
@@ -164,9 +235,9 @@ const logOut = () => {
 
 const iconEye = document.querySelector(".icon-eye");
 
-iconEye.addEventListener ("click", function () {
+iconEye.addEventListener("click", function () {
   const icon = this.querySelector("i");
-  
+
   if (this.nextElementSibling.type === "password") {
     this.nextElementSibling.type = "text";
     icon.classList.remove("fa-eye-slash");
@@ -177,3 +248,22 @@ iconEye.addEventListener ("click", function () {
     icon.classList.add("fa-eye-slash");
   }
 });
+
+const vermas = () => {
+  window.location.href = './index.html'
+}
+
+
+
+// funcion para buscar productos 
+formSearch.onsubmit = (e) => {
+  e.preventDefault();
+  const term = inputSearch.value;
+  const searchProducts = productos.filter(producto => 
+    producto.nombre.toLowerCase().includes(term.toLowerCase())
+  );
+  displayProducts(searchProducts);
+}
+const clearSearch = () => {
+  displayProducts(productos);
+}
