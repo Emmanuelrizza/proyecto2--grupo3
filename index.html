@@ -19,7 +19,7 @@
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-sm navbar-light bg-transparent">
+    <nav class="navbar navbar-expand-sm shadow">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">
                 <img src="./Imagenes/ERC-logo-icon.png" class="icon-logo navbar-brand my-2" alt="Logo ERC Electronic" />
@@ -38,12 +38,12 @@
         </div>
     </nav>
     <!--Buscador-->
-    <div class="container">
-        <form id="formSearch" class="d-flex mt-3 mb-5">
-            <input id="inputSearch" class="form-control me-2" type="search" placeholder="Escriba el nombre del producto"
+    <div class="container mt-4">
+        <form id="formSearch" class="d-flex mt-3 mb-5 justify-content-center">
+            <input id="inputSearch" class="form-control me-2 w-50" type="search" placeholder="Escriba el nombre del producto"
                 aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
-            <button class="btn btn-outline-dark ms-2" type="button" onclick="clearSearch()">X</button>
+            <button class="btn btn-outline-info rounded" type="submit">Buscar</button>
+            <button class="btn btn-outline-dark ms-2 rounded" type="button" onclick="clearSearch()">X</button>
         </form>
     </div>
     <!--Slide de productos destacados-->
@@ -111,29 +111,29 @@
         </button>
     </div>
     <!-- SECCION DONDE APARECEN LOS PRODUCTOS -->
-    <div class="container">
+    <div class="container my-5">
         <div class="row " id="divMostrarProductos">
         </div>
     </div>
     <!--Sobre nosotros-->
     <div id="sectionNosotros" class="row no-gutters g-0 mt-5 py-3">
         <div id="nosotros-img" class="col-md-2 text-center">
-            <img src="./Imagenes/ERC-logo.jpg" alt="" class="imagenSN">
+            <img src="./Imagenes/ERC-logo-icon.png" alt="" class="imagenSN">
         </div>
         <div class=" col-md-10 mt-1">
             <h1 class="title-nosotros">
                 QUIENES SOMOS
             </h1>
             <p class="text-nosotros">
-                Erc es una pagina que te ofrece todo lo referido a tecnologia. Tenemos todo lo que necesitas y te lo
-                llevamos de manera segura hasta tu casa.
-            </p>
-            <p class="text-nosotros">Somos el e-commerce de productos de tecnologia más completo para vos. <br>
-                Tenemos años de experiencia, cientos de productos publicados,
-                hacemos envios de Lunes a Sabado y siempre buscamos tener los mejores precios y variedad.
+            Erc es una pagina que te ofrece todo lo referido a tecnologia. Tenemos todo lo que necesitas y te lo
+            llevamos de manera segura hasta tu casa.
+            
+            Somos el e-commerce de productos de tecnologia más completo para vos. <br>
+            Tenemos años de experiencia, cientos de productos publicados,
+            hacemos envios de Lunes a Sabado y siempre buscamos tener los mejores precios y variedad.
             </p>
             <a href="./About-us.html" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true"
-                target="_blank" noopener="noopener">Ver Más</a>
+             noopener="noopener">Ver Más</a>
         </div>
     </div>
             <!-- Inicio de Footer -->

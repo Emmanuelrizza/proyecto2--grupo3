@@ -269,7 +269,7 @@ const divShowbtnNavbarAdmin = document.getElementById("divShowbtnNavbarAdmin");
 if (userLogged) {
   divShowbtnNavbarAdmin.innerHTML = `
     <div class="dropdown-end">
-    <button class="btn bg-transparent text-dark dropdown-toggle fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn bg-transparent text-dark dropdown-toggle fs-5 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fa-solid fa-user-astronaut"></i>
       ${userLogged.name}
     </button>

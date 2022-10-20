@@ -37,17 +37,17 @@ const divShowbtnNavbar = document.getElementById("divShowbtnNavbar");
 
 if (!userLogged) {
   divShowbtnNavbar.innerHTML = `
-    <button type="button" class="btn bg-transparent text-dark mx-1 fs-5" data-bs-toggle="modal" data-bs-target="#Login">
+    <button type="button" class="btn bg-transparent text-dark mx-1 fs-5 text-white" data-bs-toggle="modal" data-bs-target="#Login">
       Inicia sesion
     </button>
-    <button type="button" class="btn bg-transparent text-dark mx-1 fs-5" data-bs-toggle="modal" data-bs-target="#Registro">
+    <button type="button" class="btn bg-transparent text-dark mx-1 fs-5 text-white" data-bs-toggle="modal" data-bs-target="#Registro">
       Registrate
     </button>
     `;
 } else {
   divShowbtnNavbar.innerHTML = `
     <div class="dropdown">
-    <button class="btn bg-transparent text-dark dropdown-toggle fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn bg-transparent text-dark dropdown-toggle fs-5 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fa-solid fa-user-astronaut"></i>
       ${userLogged.name}
     </button>
@@ -69,7 +69,7 @@ const displayProducts = (productos) => {
       (producto) =>
         `
           <div class=" col-12 col-md-6 col-lg-3 p-2">
-          <div class="card">
+          <div class="card border-1 border-dark shadow">
           <div class="d-flex div-img-card">
             <img src="${producto.foto}" class="img-card-producto" alt="...">
             </div>
