@@ -3,6 +3,46 @@ const tablaDeProductos = document.querySelector("#tablaDeProductos");
 // Datos JSON
 const userAdmin = JSON.parse(localStorage.getItem("isAdmin"));
 const productos = JSON.parse(localStorage.getItem("productos")) || [];
+const productosHardCod = [
+{
+  id : idRandom(),
+    nombre : "Samsung A30",
+    precio : 40000,
+    foto : "https://http2.mlstatic.com/D_NQ_NP_738933-MLA31838585007_082019-O.jpg" ,
+    video : "https://youtu.be/u0_-vm-3dHo",
+    descripcion : "características técnicas del A30: Sistema operativo Android 9.0 2340 x 1080 (FHD+) Cámara dual trasera16 Mpx + 5 Mpx Cámara frontal 16 Mpx Pantalla Touchscreen Batería 4000 mA RAM 3GB Memoria interna 32GB Memoria externa hasta 512GB Dual-SIM",
+    categoria : "Tecnologia",
+    deleteAt : "no",
+    publicado : true,
+    hardCode : true
+},
+
+{
+  id : idRandom(),
+    nombre : "Smart Philir 32",
+    precio : 44000,
+    foto : "https://images.philips.com/is/image/PhilipsConsumer/32PHG5301_77-IMS-es_AR?$jpglarge$&wid=1250" ,
+    video : "https://youtu.be/6AROcVRbeg8",
+    descripcion : "SMART LED TV PHILIPS 32 PULGADAS HD 32HD Alto: 48.62.  Ancho: 71.92.  Color: NEGRO.  Angulo de vision: AMPLIO.  Tipo: CD.  Base giratoria: NO.",
+    categoria : "Tecnologia, Hogar",
+    deleteAt : "no",
+    publicado : true,
+    hardCode : true
+}
+]
+const hasProduct = ()=>{
+  return productos.find(
+    (producto)=> producto.hardCode === true 
+  )
+}
+
+if(!hasProduct()){
+  const newproducto = productos.concat(productosHardCod)
+localStorage.setItem("productos", JSON.stringify(newproducto) )
+}
+
+
+
 // Mostrar tabla de productos
 const mostrarProductos = (productos) => {
   tablaDeProductos.innerHTML = productos
@@ -10,36 +50,32 @@ const mostrarProductos = (productos) => {
       (prod, i) => `
     <tr>
         <td>${++i}</td>
-        <td class="w-25"><img src="${prod.foto}" alt="${
-        prod.nombre
-      }" class="w-25"/></td>
+        <td class="contenedor-imagen d-none d-md-flex"><img src="${prod.foto}" alt="${prod.nombre}" class="w-100 d-none d-md-block imagen-producto"/></td>
         <td>${prod.nombre}</td>
         <td>${prod.descripcion}</td>
         <td>${prod.precio}</td>
         <td>
-        <button type="button" onclick="uploadFormEditProduct(${
-          prod.id
-        })" class="btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#editarProducto"><i class="fas fa-user-edit"></i></button>
-        <button type="button" onclick="eliminarProducto(${
-          prod.id
-        })" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
-        <button type="button" onclick="NoPublicarProducto(${
-          prod.id
-        })" class="btn btn-sm ${
-        prod.publicado === true ? "btn-success" : "btn-secondary"
-      } ${
-        prod.publicado === true ? "active" : "disable"
-      }">No publicar</i></button>
-        <button type="button" onclick="publicarProducto(${
-          prod.id
-        })" class="btn btn-sm ${
-        prod.publicado === false ? "btn-success" : "btn-secondary"
-      } ${
-        prod.publicado === false ? "active" : "disable"
-      }">Publicar</i></button></td>
-        </tr>`
-    )
-    .join("");
+        <div class="d-none d-md-flex">
+        <button type="button" onclick="uploadFormEditProduct(${prod.id})" class="mx-1  btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#editarProducto"><i class="fas fa-user-edit"></i></button>
+        <button type="button" onclick="eliminarProducto(${prod.id})" class="mx-1  btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+        <button type="button" onclick="NoPublicarProducto(${prod.id})" class="mx-1  btn btn-sm ${prod.publicado === false ? "d-none" : "d.block"} ${prod.publicado === true ? "btn-success" : "btn-secondary"} ${prod.publicado === true ? "active" : "disable"}">No publicar</i></button>
+        <button type="button" onclick="publicarProducto(${prod.id})" class="mx-1  btn btn-sm ${prod.publicado === true ? "d-none" : "d.block"} ${prod.publicado === false ? "btn-success" : "btn-secondary"} ${prod.publicado === false ? "active" : "disable"}">Publicar</i></button>
+        </div>
+        
+        
+        <div class="dropdown d-md-none">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Opciones</button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><button type="button" onclick="uploadFormEditProduct(${prod.id})" class="btn btn-sm btn-warning text-light" data-bs-toggle="modal" data-bs-target="#editarProducto"><i class="fas fa-user-edit"></i></button>
+          <button type="button" onclick="eliminarProducto(${prod.id})" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+          <button type="button" onclick="NoPublicarProducto(${prod.id})" class="btn btn-sm ${prod.publicado === false ? "d-none" : "d.block"} ${prod.publicado === true ? "btn-success" : "btn-secondary"} ${prod.publicado === true ? "active" : "disable"}">No publicar</i></button>
+          <button type="button" onclick="publicarProducto(${prod.id})" class="btn btn-sm ${prod.publicado === true ? "d-none" : "d.block"} ${prod.publicado === false ? "btn-success" : "btn-secondary"} ${prod.publicado === false ? "active" : "disable"}">Publicar</i></button></li>
+        </ul>
+        </div></td>
+        
+        
+        
+        </tr>`).join("");
 };
 // Funcion para mostrar los productos
 const displayProductos = () => {
@@ -88,9 +124,10 @@ const categoriaDelProductoEditado = document.querySelector(
 //Funcion para control de acceso
 const controlDeAcceso = () => {
   if (!userAdmin) {
-    window.location.href = "index.html";
+    window.location.href = `../index.html`;
   }
 };
+//controlDeAcceso()
 
 // Funcion para hacer un ID random
 function idRandom() {
@@ -190,31 +227,39 @@ formEditarProductos.onsubmit = (e)=>{
 
 // FUNCION PARA ELIMINAR PRODUCTOS
 const eliminarProducto = (id) => {
-  const updateProducts = productos.map((producto) =>
-    producto.id === id ? (producto.deleteAt = Date()) : producto
-  );
-  localStorage.setItem("productos", JSON.stringify(updateProducts));
-  displayProductos();
+  productos.forEach((producto) => {
+    if (producto.id === id) 
+        
+        producto.deleteAt= new Date()
+  })
+
+localStorage.setItem('productos', JSON.stringify(productos));
+displayProductos();
+
 };
+
+
 
 const NoPublicarProducto = (id) => {
-  const updateProducts = productos.map((producto) =>
-    producto.id === id && producto.publicado === true
-      ? { ...producto, publicado: false }
-      : producto
-  );
-  localStorage.setItem("productos", JSON.stringify(updateProducts));
-  displayProductos();
+    productos.forEach((producto) => {
+        if (producto.id === id && producto.publicado === true) 
+            
+            producto.publicado= false;
+      })
+    localStorage.setItem('productos', JSON.stringify(productos));
+    displayProductos();
 };
 
+
+
 const publicarProducto = (id) => {
-  const updateProducts = productos.map((producto) =>
-    producto.id === id && producto.publicado === false
-      ? { ...producto, publicado: true }
-      : producto
-  );
-  localStorage.setItem("productos", JSON.stringify(updateProducts));
-  displayProductos();
+    productos.forEach((producto) => {
+        if (producto.id === id && producto.publicado === false) 
+            
+            producto.publicado= true;
+      })
+    localStorage.setItem('productos', JSON.stringify(productos));
+    displayProductos();
 };
 
 // Admin Navbar

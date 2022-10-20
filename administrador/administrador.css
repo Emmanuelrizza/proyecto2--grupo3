@@ -1,3 +1,4 @@
+
 .th_img{
     width: 150px;
     height: 150px;
@@ -5,4 +6,17 @@
 
 .img_producto{
     object-fit: cover !important;
+
+body{
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.contenedor-imagen{
+    width:  150px;
+    height: 150px;
+}
+.imagen-producto{
+    object-fit: cover;
+
 }
