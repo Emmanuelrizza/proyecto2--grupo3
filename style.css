@@ -1,10 +1,18 @@
-* {
-  margin: 0;
-  padding: 0;
+
+*{
+    margin: 0;
+    padding: 0;
+
 }
-.arregloImg {
-  width: 100px;
-  height: 300px;
+/* COMIENZO ESTILOS ABOUT US -------------- */
+.bg-general{
+    background-color: #d2dfdf;
+}
+.arregloImg{
+    width: 100px;
+    height: 300px;
+    object-fit: cover;
+
 }
 .card-style {
   height: 550px;
@@ -16,6 +24,9 @@
   width: 100%;
   background-size: cover;
 }
+.bg-aboutUs{
+    background-color:  #172058;  
+}
 
 .iconos {
   color: #172058;
@@ -25,9 +36,10 @@
   transform: scale(1.5);
   color: #020aa6;
 }
-.color-caracteristica {
-  color: #27c27a;
-}
+
+.color-caracteristica{
+    color: #27C27A ;
+
 
 #navbarSupportedContent {
   position: relative;
@@ -52,6 +64,9 @@
   height: 90px;
   margin-left: 40px;
 }
+
+/* FIN ESTILOS ABOUT US -------------- */
+
 .navbar-toggler {
   width: 40px;
   height: 10px;
