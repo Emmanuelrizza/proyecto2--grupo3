@@ -59,7 +59,7 @@ if (!userLogged) {
     `;
 }
 
-// INYECTAR HTML PARA QUE SE VEAN LOS PRODUCTOS
+// INYECTAR HTML PARA QUE SE VEAN LOS PRODUCTOS -----
 const displayProducts = (productos) => {
   const productsAvailable = productos.filter(
     (producto) => !producto.hasOwnProperty()
