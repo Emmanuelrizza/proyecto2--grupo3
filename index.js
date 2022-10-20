@@ -255,6 +255,7 @@ const vermas = () => {
 
 
 
+
 // funcion para buscar productos 
 formSearch.onsubmit = (e) => {
   e.preventDefault();
@@ -267,3 +268,4 @@ formSearch.onsubmit = (e) => {
 const clearSearch = () => {
   displayProducts(productos);
 }
+
