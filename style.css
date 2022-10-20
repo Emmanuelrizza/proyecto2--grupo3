@@ -151,16 +151,17 @@ body{
 /* Color de las 3 lineas */
 
 .navbar-toggler.collapsed .toggler-icon {
-  background: rgb(4, 38, 64);
+  background: rgb(251, 251, 251);
 }
 
 @media screen and (max-width: 500px) {
   #divShowbtnNavbar,
   #divShowbtnNavbarAdmin,
   #divShowbtnNavbarAbout {
-    position: absolute;
+    position: relative;
     margin: auto;
     right: 7px;
+    float: right;
   }
 }
 
@@ -241,3 +242,4 @@ sectionNosotros {
   object-fit: scale-down;
 }
 
+/*  DESPLEGABLE NAVBAR */
