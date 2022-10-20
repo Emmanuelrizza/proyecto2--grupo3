@@ -37,17 +37,17 @@ const divShowbtnNavbar = document.getElementById("divShowbtnNavbar");
 
 if (!userLogged) {
   divShowbtnNavbar.innerHTML = `
-    <button type="button" class="btn bg-transparent text-dark mx-1 fs-5 text-white" data-bs-toggle="modal" data-bs-target="#Login">
+    <button type="button" class="btn bg-transparent text-dark mx-1 fs-5" data-bs-toggle="modal" data-bs-target="#Login">
       Inicia sesion
     </button>
-    <button type="button" class="btn bg-transparent text-dark mx-1 fs-5 text-white" data-bs-toggle="modal" data-bs-target="#Registro">
+    <button type="button" class="btn bg-transparent text-dark mx-1 fs-5" data-bs-toggle="modal" data-bs-target="#Registro">
       Registrate
     </button>
     `;
 } else {
   divShowbtnNavbar.innerHTML = `
     <div class="dropdown">
-    <button class="btn bg-transparent text-dark dropdown-toggle fs-5 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn bg-transparent text-dark dropdown-toggle fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fa-solid fa-user-astronaut"></i>
       ${userLogged.name}
     </button>
@@ -59,13 +59,14 @@ if (!userLogged) {
     `;
 }
 
+
+
 // INYECTAR HTML PARA QUE SE VEAN LOS PRODUCTOS
 const displayProducts = (productos) => {
   const productsAvailable = productos.filter(
-    (producto) => !producto.hasOwnProperty()
-  );
-  divMostrarProductos.innerHTML = productsAvailable
-    .map(
+    (producto) => producto.publicado = true && producto.deleteAt === "no")
+  ;
+  divMostrarProductos.innerHTML = productsAvailable.map(
       (producto) =>
         `
           <div class=" col-12 col-md-6 col-lg-3 p-2">
@@ -75,7 +76,7 @@ const displayProducts = (productos) => {
             </div>
             <div class="card-body">
               <h5 class="card-title fs-5 text-center">${producto.nombre}</h5>
-              <p class="card-text">${producto.descripcion}
+              <p class="card-text">${producto.descripcion.substring(0,150)}...
               <span class="badge ${producto.precio < 3000 ? 'bg-success' : 'bg-danger'} ">$ ${producto.precio}</span></p>
               <a href="#" class="btn btn-primary">Comprar</a>
               <button type="button" class="btn btn-primary" onclick="vermas()">Ver mas</button>
@@ -191,7 +192,6 @@ formLogin.onsubmit = (e) => {
     }, 1000);
   }
 };
-
 //CONTRASEÑA OLVIDADA.
 const forgottenPassword = () => {
   swal(
@@ -252,6 +252,8 @@ const vermas = () => {
   window.location.href = './index.html'
 }
 
+
+
 // funcion para buscar productos 
 formSearch.onsubmit = (e) => {
   e.preventDefault();
@@ -264,4 +266,3 @@ formSearch.onsubmit = (e) => {
 const clearSearch = () => {
   displayProducts(productos);
 }
-
