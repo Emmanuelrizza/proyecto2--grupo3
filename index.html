@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- SweetAlert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/49102b9949.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./Imagenes/ERC-logo.jpg">
+    <link rel="SobreNosotros" href="./About-us.html">
     <title>Electronic RC</title>
 </head>
+
 <body>
-     <!-- NAVBAR -->
-     <nav class="navbar navbar-expand-sm navbar-light bg-transparent">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-transparent">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">
-                <img src="./Imagenes/ERC-logo-icon.png" class="icon-logo navbar-brand my-2"
-                    alt="Logo ERC Electronic" />
+                <img src="./Imagenes/ERC-logo-icon.png" class="icon-logo navbar-brand my-2" alt="Logo ERC Electronic" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-            <span class="toggler-icon top-bar"></span>
-            <span class="toggler-icon middle-bar"></span>
-            <span class="toggler-icon bottom-bar"></span>
+                <span class="toggler-icon top-bar"></span>
+                <span class="toggler-icon middle-bar"></span>
+                <span class="toggler-icon bottom-bar"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div id="divShowbtnNavbar" class="">
@@ -34,178 +37,205 @@
             </div>
         </div>
     </nav>
-<!--Slide de productos destacados-->
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
+    <!--Buscador-->
+    <div class="container">
+        <form id="formSearch" class="d-flex mt-3 mb-5">
+            <input id="inputSearch" class="form-control me-2" type="search" placeholder="Escriba el nombre del producto"
+                aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+            <button class="btn btn-outline-dark ms-2" type="button" onclick="clearSearch()">X</button>
+        </form>
     </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="./Imagenes/Gráficotv.png" class="d-block w-100" alt="Smart tv">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Smart Tv UHD LG 43"</h5>
-                <p><ul>LED 4K UHD</ul>
+
+
+
+
+
+    <!--Slide de productos destacados-->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./Imagenes/Gráficotv.png" class="d-block w-100" alt="Smart tv">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="tituloSlider">Smart Tv UHD LG 43"</h5>
+                    <p>
+                    <ul>LED 4K UHD</ul>
                     <ul>Inteligente α5 4K</ul>
                     <ul>HDR Activo 4K</ul>
                     <ul>Sonido Ultra Surround</ul>
                     <ul>LG AI ThinQ: Inteligencia Artificial</ul>
                     </p>
-                    <button type="button" class="btn btn-outline-secondary">Ver Mas</button>
+                    <button type="button" class="btn btn-outline-secondary" onclick="">Ver Mas</button>
+                </div>
             </div>
-        </div>
-        <div class="carousel-item">
-            <img src="./Imagenes/Gráficocel.png" class="d-block w-100" alt="Celu">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Samsung Z Fold 4</h5>
-                <p><ul>Tamaño de la pantalla: 7.3 "</ul>
-                    <ul>Memoria interna: 256 GB</ul>
-                    <ul>Cámara trasera principal: 16 Mpx</ul>
-                    <ul>Cámara frontal principal: 10 Mpx</ul>
-                    <ul>Desbloqueo: Huella dactilar y reconocimiento facial</ul></p>
-                    <button type="button" class="btn btn-outline-info" onclick="vermas()">Ver Mas</button>
+            <div class="carousel-item">
+                <img src="./Imagenes/Gráficocel.png" class="d-block w-100" alt="Celu">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="tituloSlider" >Samsung Z Fold 4</h5>
+                    <p>
+                    <ul>Tamaño de la pantalla: 7.3 "</ul>
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="carousel-item">
-            <img src="./Imagenes/Gráficocompu.png" class="d-block w-100" alt="Notebook">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Notebook HP 240 G7</h5>
-                <p> <ul>Procesador Intel Celeron</ul>
+
+            <div class="carousel-item">
+                <img src="./Imagenes/Gráficocompu.png" class="d-block w-100" alt="Notebook">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="tituloSlider">Notebook HP 240 G7</h5>
+                    <p>
+                    <ul>Procesador Intel Celeron</ul>
                     <ul>Memoria RAM de 4GB</ul>
                     <ul>Pantalla LED de 14"</ul>
                     <ul>Placa de video Intel UHD Graphics 600</ul>
                     </p>
-                <button type="button" class="btn btn-outline-danger">Ver Mas</button>
+                    <button type="button" class="btn btn-outline-danger" onclick="">Ver Mas</button>
+                </div>
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-<!-- MODAL LOGIN -->
-<div class="modal fade" id="Login" tabindex="" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ingresa tus datos</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="FormularioLogin">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label><span
-                            class="text-danger">*</span>
-                        <input type="email" class="form-control" id="InputEmailLogin" aria-describedby="emailHelp"
-                            autocomplete="off" required />
-                        <p id="pUserNotCreated" class="d-none text-danger">
-                            Las credenciales son inválidas
-                        </p>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Contraseña</label><span
-                            class="text-danger">*</span>
+
+
+    <!-- SECCION DONDE APARECEN LOS PRODUCTOS -->
+    <div class="container">
+        <div class="row " id="divMostrarProductos">
+
+        </div>
+    </div>
+    <!--Sobre nosotros-->
+    <div id="sectionNosotros" class="row no-gutters g-0 mt-5">
+        <div id="nosotros-img" class="col-md-2 text-center">
+            <img src="./Imagenes/ERC-logo.jpg" alt="" class="imagenSN">
+        </div>
+        <div class=" col-md-10 mt-1">
+            <h1 class="title-nosotros">
+                QUIENES SOMOS
+            </h1>
+            <p class="text-nosotros">
+                Erc es una pagina que te ofrece todo lo referido a tecnologia. Tenemos todo lo que necesitas y te lo
+                llevamos de manera segura hasta tu casa.
+            </p>
+            <p class="text-nosotros">Somos el e-commerce de productos de tecnologia más completo para vos. <br>
+                Tenemos años de experiencia, cientos de productos publicados,
+                hacemos envios de Lunes a Sabado y siempre buscamos tener los mejores precios y variedad.
+            </p>
+            <a href="./About-us.html" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true"
+                target="_blank" noopener="noopener">Ver Más</a>
+        </div>
+    </div>
+    <!-- MODAL LOGIN -->
+    <div class="modal fade" id="Login" tabindex="" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ingresa tus datos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="FormularioLogin">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email</label><span
+                                class="text-danger">*</span>
+                            <input type="email" class="form-control" id="InputEmailLogin" aria-describedby="emailHelp"
+                                autocomplete="off" required />
+                            <p id="pUserNotCreated" class="d-none text-danger">
+                                Las credenciales son inválidas
+                            </p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Contraseña</label><span
+                                class="text-danger">*</span>
                             <span class="icon-eye"><i class="fa-regular fa-eye-slash"></i></span>
-                        <input type="password" class="form-control" id="InputPasswordLogin" autocomplete="off"
-                            required />
-                    </div>
-                    <button type="button" class="btn" onclick="forgottenPassword()">
-                        <i class="glyphicon glyphicon-envelope"></i>
-                        Olvide mi contraseña
-                      </button>
-                    <button type="submit" class="btn btn-primary float-end">
-                        Iniciá Sesión
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- MODAL REGISTRO -->
-<div class="modal fade" id="Registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ingresa tus datos para registrarte</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="registrationForm">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Nombre</label><span class="text-danger">*</span>
-              <input type="text" class="form-control" id="InputNameRegistro" aria-describedby="emailHelp" required>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Apellido</label><span class="text-danger">*</span>
-              <input type="text" class="form-control" id="InputLastNameRegistro" aria-describedby="emailHelp" required>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email</label><span class="text-danger">*</span>
-              <input type="email" class="form-control" id="InputEmailRegistro" aria-describedby="emailHelp" autocomplete="off" required>
-              <p id="alreadyEmail" class="d-none text-danger">El email ya se encuentra registrado</p>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Contraseña</label><span class="text-danger">*</span>
-              <input type="password" class="form-control" id="InputPasswordRegistro" autocomplete="off" required>
-              <p id="passValid" class="d-none text-danger">La contraseña debe tener un mínimo de 8 caracteres y un máximo de 12. Debe contener al menos una letra mayúscula, una minúscula, un número y un caracter especial</p>
-            </div>
-            <button type="submit" class="btn btn-primary float-end">Registrarse</button>
-          </form>
-        </div>
-    </div>
-  </div>
-  <!-- FOOTER -->
-  <footer>
-    <div class="container-fluid">
-        <div class="row bg-dark align-items-center">
-            <div class="col-md-4 col-sm-12 text-center">
-                <img src="./Imagenes/ERC-logo-icon.png" alt="logo" width="200">
-            </div>
-
-            <div class="col-md-4 col-sm-12 text-center">
-                <h5 class="mb-3 text-white font-weight-bolder mt-3">Nuestras redes Sociales</h5>
-                <a href="https://www.facebook.com/login/" class="fa-brands fa-facebook redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a>
-                <a href="https://www.whatsapp.com/" class="fa-brands fa-whatsapp redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a>
-                <a href="https://twitter.com/i/flow/login" class="fa-brands fa-twitter redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a>
-                <a href="tel:+549-3813368181" class="fa-solid fa-phone redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a>
-                <a href="https://www.youtube.com/" class="fa-brands fa-youtube redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a>
-                <a href="https://www.instagram.com/accounts/login/?" class="fa-brands fa-instagram redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a>
-                <p class="mt-4 text-white font-weight-bolder border-bottom-2">Copyrigth 2022 © TODOS LOS DERECHOS
-                    RESERVADOS <span class="text-info">EQUIPO Nº4</span> </p>
-            </div>
-
-            <div class="col-md-4 col-sm-12">
-                <p class="text-white  text-center mt-2 mb-2">Los precios cotizados pueden variar sin previo aviso y no
-                    incluyen IVA - Factura A.
-                    Todas las imágenes y descripciones comerciales no son contractuales. Las descripciones de todos
-                    los productos y
-                    condiciones se encuentran sujetas a modificaciones sin previo aviso, pueden contener errores o
-                    pueden no contener
-                    todos los datos descriptivos. A los fines de obtener un asesoramiento completo e integral
-                    deberán concurrir al
-                    local.
-                </p>
-
-                <div class="text-center">
-                    <a href="/404.html" class="text-center">Terminos y Condiciones</a>
+                            <input type="password" class="form-control" id="InputPasswordLogin" autocomplete="off"
+                                required />
+                        </div>
+                        <button type="button" class="btn" onclick="forgottenPassword()">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            Olvide mi contraseña
+                        </button>
+                        <button type="submit" class="btn btn-primary float-end">
+                            Iniciá Sesión
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</footer>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script src="./index.js"></script>
+
+    <!-- MODAL REGISTRO -->
+    <div class="modal fade" id="Registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ingresa tus datos para registrarte</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nombre</label><span
+                                class="text-danger">*</span>
+                            <input type="text" class="form-control" id="InputNameRegistro" aria-describedby="emailHelp"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Apellido</label><span
+                                class="text-danger">*</span>
+                            <input type="text" class="form-control" id="InputLastNameRegistro"
+                                aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email</label><span
+                                class="text-danger">*</span>
+                            <input type="email" class="form-control" id="InputEmailRegistro"
+                                aria-describedby="emailHelp" autocomplete="off" required>
+                            <p id="alreadyEmail" class="d-none text-danger">El email ya se encuentra registrado</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Contraseña</label><span
+                                class="text-danger">*</span>
+                            <input type="password" class="form-control" id="InputPasswordRegistro" autocomplete="off"
+                                required>
+                            <p id="passValid" class="d-none text-danger">La contraseña debe tener un mínimo de 8
+                                caracteres y un máximo de 12. Debe contener al menos una letra mayúscula, una minúscula,
+                                un número y un caracter especial</p>
+                        </div>
+                        <button type="submit" class="btn btn-primary float-end">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+        <script src="./index.js"></script>
+
 </body>
+
 </html>

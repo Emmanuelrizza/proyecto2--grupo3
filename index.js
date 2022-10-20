@@ -1,3 +1,9 @@
+
+// DIV PARA MOSTRAR LOS PRODUCTOS EN INDEX
+const divMostrarProductos = document.querySelector("#divMostrarProductos");
+const productos = JSON.parse(localStorage.getItem('productos')) || [];
+const formSearch = document.getElementById('formSearch');
+
 //FORMULARIO DE REGISTRO
 const formRegistro = document.getElementById("registrationForm");
 const inputNameRegistro = document.getElementById("InputNameRegistro");
@@ -18,7 +24,6 @@ const inputEmailLogin = document.getElementById("InputEmailLogin");
 const inputPassLogin = document.getElementById("InputPasswordLogin");
 const modalLogin = document.getElementById("Login");
 const pUserNotCreated = document.getElementById("pUserNotCreated");
-const formSearch = document.getElementById("formSearch");
 const inputSearch = document.getElementById("inputSearch");
 
 //INFO LOCAL STORAGE
@@ -53,6 +58,37 @@ if (!userLogged) {
   </div>
     `;
 }
+
+
+
+// INYECTAR HTML PARA QUE SE VEAN LOS PRODUCTOS
+const displayProducts = (productos) => {
+  const productsAvailable = productos.filter(
+    (producto) => !producto.hasOwnProperty()
+  );
+  divMostrarProductos.innerHTML = productsAvailable
+    .map(
+      (producto) =>
+        `
+          <div class=" col-12 col-md-6 col-lg-3 p-2">
+          <div class="card">
+          <div class="d-flex div-img-card">
+            <img src="${producto.foto}" class="img-card-producto" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fs-5 text-center">${producto.nombre}</h5>
+              <p class="card-text">${producto.descripcion}
+              <span class="badge ${producto.precio < 3000 ? 'bg-success' : 'bg-danger'} ">$ ${producto.precio}</span></p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+              <button type="button" class="btn btn-primary" onclick="vermas()">Ver mas</button>
+            </div>
+            </div>
+          </div>
+  `
+    )
+    .join('');
+};
+displayProducts(productos);
 
 //FUNCIONES
 function idRandom() {
@@ -216,3 +252,20 @@ iconEye.addEventListener("click", function () {
 const vermas = () => {
   window.location.href = './index.html'
 }
+
+
+
+
+// funcion para buscar productos 
+formSearch.onsubmit = (e) => {
+  e.preventDefault();
+  const term = inputSearch.value;
+  const searchProducts = productos.filter(producto => 
+    producto.nombre.toLowerCase().includes(term.toLowerCase())
+  );
+  displayProducts(searchProducts);
+}
+const clearSearch = () => {
+  displayProducts(productos);
+}
+
