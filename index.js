@@ -59,8 +59,6 @@ if (!userLogged) {
     `;
 }
 
-
-
 // INYECTAR HTML PARA QUE SE VEAN LOS PRODUCTOS
 const displayProducts = (productos) => {
   const productsAvailable = productos.filter(
@@ -193,6 +191,7 @@ formLogin.onsubmit = (e) => {
     }, 1000);
   }
 };
+
 //CONTRASEÑA OLVIDADA.
 const forgottenPassword = () => {
   swal(
@@ -252,9 +251,6 @@ iconEye.addEventListener("click", function () {
 const vermas = () => {
   window.location.href = './index.html'
 }
-
-
-
 
 // funcion para buscar productos 
 formSearch.onsubmit = (e) => {
