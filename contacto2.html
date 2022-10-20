@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- SweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/49102b9949.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./Imagenes/ERC-logo.jpg">
+    <title>Contact Us</title>
+</head>
+
+<body>
+    <!-- Inicio Navbar -->
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img src="./Imagenes/ERC-logo-icon.png" class="icon-logo navbar-brand my-2" alt="Logo Erc" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="toggler-icon top-bar"></span>
+                <span class="toggler-icon middle-bar"></span>
+                <span class="toggler-icon bottom-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div id="divShowbtnNavbar" class="">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Fin Navbar -->
+    <!-- Inicio Contacto -->
+    <main class="contactus">
+        <div class="container-fluid bg-white my-5 w-75 rounded shadow">
+            <div class="row align-items-center">
+                <!--Inicio primera Columna-->
+                <div class="col-lg-6">
+                    <div>
+                        <div class="">
+                            <!-- <div class="col-sm"><img src="./Imagenes/ERC-logo-icon.png" alt="logo" width="80" class="mb-5"></div> -->
+                            <div class="col-sm py-4 text-center"><h1>CONTACTANOS</h1></div>
+                        </div>                       
+                        <div class="col-lg-12">
+                        <h2 class="font-weight-bold text-center py-3 border-top border-bottom border-2 ">Dejanos tu Consulta </h2>
+                            <form id="form" action="#" class="form">
+                                <div>
+                                    <label for="nombre">Nombre y apellido*</label>
+                                    <input type="name" class="form-control" placeholder="Nombre"
+                                        name="nombre" maxlength="30" required="">
+                                </div>
+                                <div class="mb-4 mt-4">
+                                    <label for="email" class="form-check-label">Email*</label>
+                                    <input type="email" class="form-control" placeholder="nombre@gmail.com"
+                                        name="email" maxlength="30" required="">
+                                </div>
+                                <div class="mb-4 text-area ">
+                                    <label for="mensaje">Mensaje*</label>
+                                    <textarea name="comentarios" id="consulta" row="3" class="form-control text-area"
+                                        placeholder="Agregue su consulta aqui" required="" minlength="4"
+                                        maxlength="250"></textarea>
+                                </div>
+                                <div class="btn-lg text-center">
+                                    <button type="submit" class="btn btn-info btn-lg w-100 font-weight-bolder boton-enviar" onclick="botonenviar()">Enviar</button>
+                                </div>
+                                <a href="mailto:ingvmenichetti@gmail.com" id="email">email</a>
+                               
+                                <div class="my-3 d-flex justify-content-between">
+                                    <span>Conoce nuestros productos<a href="index.html" class="font-weight-bold text-decoration-none"> Tienda</a> </span> <br>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+<!--Fin de contacto-->
+<!--Final primera Columna-->
+<!--Inicio Segunda Columna-->
+                <div class="col-lg-6 py-1">
+                    <h2 class="font-weight-bolder text-dark text-center">También podes pasar por nuestra empresa</h2>
+                <div class="mapa">
+                <!-- mapa -->
+                        <iframe class=" direccion mb-3" width="100%" height="300"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14240.408879082126!2d-65.2072018!3d-26.8367009!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses!2sar!4v1658796119777!5m2!1ses!2sar"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!--Fin Segunda Columna-->
+    </main>
+    
+    <!-- Declaración Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+    <!-- JavaScript -->
+    <script>
+        const $form = document.querySelector('#form')
+        const $buttonemail = document.querySelector('#email')
+        $form.addEventListener('submit',handleSubmit)
+        function handleSubmit(event){
+            event.preventDefault()
+            const form = new FormData(this)
+            // console.log(form.get('nombre'))
+            $buttonemail.setAttribute('href',`mailto:ingvmenichetti@gmail.com?subject=${form.get('nombre')} ${form.get('email')} &body= ${form.get('comentarios')}`)
+            $buttonemail.click()
+            
+        }        
+    </script>
+
+<!-- Evento Formulario de Contacto -->
+    <!-- <script>
+
+        function botonenviar(event){
+        event.preventDefault()
+        Swal.fire(
+            'Muchas Gracias!',
+            'Lo contactaremos a la brevedad!',
+            'success'
+        )
+        }
+    </script> -->
+
+
+<!-- Inicio de Footer -->
+<footer>
+    <div class="container-fluid">
+        <div class="row bg-dark align-items-center">
+            <div class="col-md-4 col-sm-12 text-center py-3">
+                <a href="./index.html"><img src="./Imagenes/ERC-logo-icon.png" alt="logo" width="100"></a>
+                <!-- <a href="https://www.whatsapp.com/" class="fa-brands fa-whatsapp redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a>
+                <a href="tel:+549-3813368181" class="fa-solid fa-phone redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a> -->
+                <h6 class="mb-3 text-white mt-4">ROLLINGCODE - Gral. Paz 576 - San Miguel de Tucumán - Tucumán - CP4000 Lunes a viernes de 9:00 a 18:00hs Tel: +54 (381)578-3030</h6>
+                
+            </div>
+
+            <div class="col-md-4 col-sm-12 text-center">
+                <h6 class="mb-3 text-white font-weight-bolder mt-4">PODES SEGUIRNOS EN NUESTRAS REDES SOCIALES</h6>
+                <a href="https://www.facebook.com/login/" class="fa-brands fa-facebook redes text-center text-decoration-none mx-2 mt-2 fs-3" target="_blank"></a>
+                <a href="https://twitter.com/i/flow/login" class="fa-brands fa-twitter redes text-center text-decoration-none mx-2 mt-2 fs-3" target="_blank"></a>
+                <a href="https://www.instagram.com/accounts/login/?" class="fa-brands fa-instagram redes text-center text-decoration-none mx-2 mt-2 fs-3" target="_blank"></a>
+                <a href="https://www.youtube.com/" class="fa-brands fa-youtube redes text-center text-decoration-none mx-2 mt-2 fs-3" target="_blank"></a>
+                <p class="mt-4 text-white font-weight-bolder border-bottom-2">Copyrigth 2022 © TODOS LOS DERECHOS
+                    RESERVADOS | by GRUPO Nº3</span> </p>
+
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <section class="">
+                    <span class="text-white text-center"> Links de interés</span>
+                    <ol class="#">
+                        <li class=""><a href="./error404.html">Centro de ayuda</a></li>
+                        <li class=""><a href="./contacto2.html">Contactanos</a></li>
+                        <li class=""><a href="./error404.html">Sucursales</a></li>
+                        <li class=""><a href="#Login">Login</a></li>
+                        <a href="./error404.html" class="text-center">Terminos y Condiciones</a>
+                    </ol>
+                </section>
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Fin de Footer -->
+<script src="./index.js"></script>
+</body>
+
+</html>
