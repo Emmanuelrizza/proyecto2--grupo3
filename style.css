@@ -85,7 +85,6 @@ body{
   position: relative;
   transition: 0.5s ease-in-out;
 }
-
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
@@ -243,6 +242,15 @@ sectionNosotros {
   width: 100%;
   height: 100%;
   object-fit: scale-down;
+}
+
+/*Detalle de producto*/
+.detalleprod{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+.lista{
+  font-size: larger;
 }
 
 /*  DESPLEGABLE NAVBAR */
