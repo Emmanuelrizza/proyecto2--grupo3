@@ -10,6 +10,7 @@
 .arregloImg{
     width: 100px;
     height: 300px;
+    object-fit: cover;
 }
 .card-style{
     height: 550px;
