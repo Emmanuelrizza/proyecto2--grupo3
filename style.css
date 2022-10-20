@@ -163,6 +163,21 @@ ul{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* CONTACTO */
+#email{
+    opacity: 0;
+}
+#contactus {
+    background: url(./Imagenes/Contact\ us.jpg);
+	background-attachment: fixed;
+	background-size:cover;
+	margin: 0;
+}
+
 /*SECCION SOBRE NOSOTROS*/
 sectionNosotros {
   padding-top: 30%;
@@ -207,3 +222,4 @@ sectionNosotros {
   height: 100%;
   object-fit: scale-down;
 }
+

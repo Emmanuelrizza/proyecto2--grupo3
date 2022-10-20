@@ -166,7 +166,7 @@ formAgregarProductos.onsubmit = (e) => {
   // bootstrap.Modal.getInstance(modalAgregarProductos).hide();
 };
 
-// Funciones para publicar los productos los productos
+// Funciones para publicar los productos
 
 // Funciones para editar los productos
 
@@ -205,6 +205,25 @@ formEditarProductos.onsubmit = (e) => {
   displayProductos();
   bootstrap.Modal.getInstance(editarProducto).hide();
 };
+formEditarProductos.onsubmit = (e)=>{
+    e.preventDefault();
+    const nombre = nombreDelProductoEditado.value;
+    const precio = precioDelProductoEditado.value;
+    const foto = fotoDelProductoEditado.value;
+    const video = videoDelProductoEditado.value;
+    const descripcion = descripcionDelProductoEditado.value;
+    const categoria = categoriaDelProductoEditado.value;
+
+    const productoActualizado = productos.map(
+        (producto)=> producto.id === idProductoEditado ? {...producto,nombre, precio, foto, video, descripcion, categoria} : producto);
+
+    localStorage.setItem('productos', JSON.stringify(productoActualizado)) 
+    swal('Producto editado con éxito', 'success');   
+    formEditarProductos.reset();
+    displayProductos();
+    bootstrap.Modal.getInstance(editarProducto).hide();
+
+}
 
 // FUNCION PARA ELIMINAR PRODUCTOS
 const eliminarProducto = (id) => {
