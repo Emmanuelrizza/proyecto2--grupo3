@@ -255,7 +255,7 @@ const vermas = (name) => {
   } else if (name === "Smart Philir 32") {
     window.location.href = './detalle2.html'
   }
- else{window.location.href = './index.html'
+ else{window.location.href = './error404.html'
  }
 }
 
